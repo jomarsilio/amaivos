@@ -1,2 +1,2 @@
-# Site do Projeto Social Amai-vos Uns Aos Outros
+# Projeto Social Amai-vos Uns Aos Outros
 ...
