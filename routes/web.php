@@ -13,6 +13,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/', App\Http\Controllers\HomeController::class)->name('home');
+
+Route::resource('voluntario', App\Http\Controllers\VolunteerController::class)
+    ->only(['create', 'store'])
+    ->parameters([
+        'voluntario' => 'volunteer',
+    ])
+    ->names([
+        'create' => 'volunteer.create',
+        'store' => 'volunteer.store'
+    ]);

@@ -1,0 +1,494 @@
+/*
+ * 1: Fontes
+ * 2: Cabeçalho
+ * 2.1: Navegação Mobile
+ * 2.2: Ajustes de Quebra
+ * 3: Corpo
+ * 3.1: Barra de Progresso
+ * 3.2: Texto
+ * 3.3: Formulário de Cadastro
+ * 3.4: Formulário de Acesso
+ * 3.5: Ajustes de Quebra
+ * 4: Rodapé 
+ */
+
+
+/*
+    Azul Claro: #a3c2d1;
+    Azul Médio: #0095d9;
+    Azul Escuro: #055076;
+    Cinza: #42515a;
+*/
+
+
+/*** 1: Fontes ***/
+
+@font-face {
+    font-family: "PFSquareSans";
+    src: url("../fonts/pfsquaresansprobold-webfont.woff2") format("woff2"), url("../fonts/pfsquaresansprobold-webfont.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "PFSquareSans";
+    src: url("../fonts/pfsquaresansproextrablack-webfont.woff2") format("woff2"), url("../fonts/pfsquaresansproextrablack-webfont.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "PFSquareSans";
+    src: url("../fonts/pfsquaresansprolight-webfont.woff2") format("woff2"), url("../fonts/pfsquaresansprolight-webfont.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "PFSquareSans";
+    src: url("../fonts/pfsquaresansproregular-webfont.woff2") format("woff2"), url("../fonts/pfsquaresansproregular-webfont.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a {
+    font-family: "PFSquareSans", sans-serif;
+    letter-spacing: 1px;
+}
+
+.color-1 {
+    color: #a3c2d1;
+}
+
+.color-2 {
+    color: #0095d9;
+}
+
+.color-3 {
+    color: #055076;
+}
+
+
+/*** 2: Cabeçalho ***/
+
+header {
+    background-image: url(../images/header-bg.jpg);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    width: 100%;
+}
+
+header .row {
+    min-height: 100px;
+}
+
+.link-logo {
+    position: absolute;
+    top: 20%;
+}
+
+.link-btn {
+    background-color: #0095d9;
+    font-size: 1.2rem;
+    transition: .2s;
+}
+
+.link-btn:hover {
+    background-color: #055076;
+    text-decoration: none;
+}
+
+
+/* 2.1: Navegação Mobile */
+
+.link-btn-mobile {
+    color: #0095d9;
+    transition: .2s;
+}
+
+.link-btn-mobile:hover {
+    color: #055076;
+}
+
+.nav-mobile {
+    position: fixed;
+    right: 0;
+    top: 85px;
+    width: 200px;
+    height: 0;
+    background-color: #eee;
+    box-shadow: 0px 3px 3px -4px black;
+    overflow: hidden;
+    z-index: 99;
+}
+
+.nav-mobile li {
+    list-style: none;
+    padding: 10px 15px;
+}
+
+.nav-mobile li:hover {
+    background-color: #0095d9;
+}
+
+.nav-mobile li a {
+    color: #42515a;
+}
+
+.nav-mobile li:hover a {
+    color: #FFF;
+}
+
+
+/* 2.2: Ajustes de Quebra */
+
+@media (max-width: 767px) {
+    header .row {
+        min-height: 85px;
+    }
+}
+
+
+/*** 3: Corpo ***/
+
+main {
+    min-height: calc(100vh - 125px);
+    padding-top: 100px;
+}
+
+main.inside:before,
+main.inside:after {
+    content: none;
+}
+
+main:before {
+    content: "";
+    position: absolute;
+    width: 450px;
+    height: 450px;
+    left: -70px;
+    bottom: -25px;
+    background-image: url(../images/char_left.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: -1;
+}
+
+main:after {
+    content: "";
+    position: absolute;
+    width: 450px;
+    height: 450px;
+    right: 0;
+    bottom: -60px;
+    background-image: url(../images/char_right.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: -1;
+}
+
+main h4 {
+    color: #42515a;
+}
+
+
+/* 3.1: Barra de Progresso */
+
+.progress {
+    border-radius: 0;
+}
+
+.progress-bar {
+    background-color: #0095d9;
+}
+
+
+/* 3.2: Texto */
+
+.inside h1 {
+    position: relative;
+    color: #a6ce39;
+}
+
+.inside h1:before {
+    content: "";
+    background-image: url(../images/down.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    width: 85px;
+    height: 70px;
+    z-index: -1;
+}
+
+.inside p {
+    color: #839db7;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.banner {
+    background-image: url(../images/main_bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: left center;
+    height: 500px;
+}
+
+
+/* 3.3: Formulário de Cadastro */
+
+#cadastro {
+    background-color: #055076;
+    margin-top: -350px;
+}
+
+#cadastro label {
+    color: #fff;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    font-family: "PFSquareSans", sans-serif;
+    line-height: 20px;
+}
+
+#cadastro span {
+    margin: -10px 0 10px;
+    font-family: "PFSquareSans", sans-serif;
+    color: #fff;
+    font-size: 13px;
+    line-height: 13px;
+}
+
+#cadastro input,
+#cadastro select {
+    border-radius: 0;
+    border: none;
+    height: 45px;
+}
+
+#cadastro input[type=checkbox],
+#cadastro input[type=radio] {
+    height: 18px;
+    width: 18px;
+}
+
+#cadastro label.form-check-label {
+    padding-left: 10px;
+}
+
+#cadastro label[for='termo'] {
+    line-height: 19px;
+    font-size: 16px;
+}
+
+#cadastro a {
+    color: #a3c2d1;
+    text-decoration: underline;
+    transition: .2s;
+}
+
+#cadastro a:hover {
+    color: #fff;
+}
+
+#cadastro button {
+    background-color: #a3c2d1;
+    color: #fff;
+    font-family: "PFSquareSans", sans-serif;
+    font-size: 20px;
+    letter-spacing: 1px;
+    padding: 10px 25px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.custom-checkbox .custom-control-label::before,
+.custom-checkbox .custom-control-label::after {
+    border-radius: 0;
+}
+
+#cadastro .custom-checkbox .custom-control-input:checked~.custom-control-label::before,
+#cadastro .custom-radio .custom-control-input:checked~.custom-control-label::before {
+    background-color: #a3c2d1;
+}
+
+#cadastro .custom-control-input:focus~.custom-control-label::before {
+    box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem rgb(163 194 209 / 30%);
+}
+
+#cadastro .custom-select {
+    background: #fff url("../img/circle-arrow.svg") no-repeat right .75rem center;
+    background-size: 25px 25px;
+}
+
+.form_alert img {
+    max-width: 100px;
+}
+
+.form_alert h3 {
+    line-height: 28px;
+}
+
+.form_alert p {
+    font-size: 1rem;
+    line-height: 20px;
+}
+
+.erro_bg {
+    background-color: #f06271 !important;
+    color: #FFF;
+}
+
+
+/* 3.4: Formulário de Acesso */
+
+.form_login {
+    margin-bottom: 225px;
+}
+
+.form_login img {
+    max-width: 225px;
+}
+
+.form_login input {
+    border: 1px solid #eee;
+    height: 45px;
+    width: 225px;
+    text-transform: uppercase;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-family: "PFSquareSans", sans-serif;
+}
+
+.form_login input::-webkit-input-placeholder {
+    color: #cdcdcd;
+}
+
+.form_login .btn-submit {
+    background-color: #055076;
+    color: #fff;
+    font-family: "PFSquareSans", sans-serif;
+    font-size: 20px;
+    letter-spacing: 1px;
+    padding: 5px 10px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.form_login .btn-submit:hover {
+    background-color: #0095d9;
+}
+
+.form_login a {
+    color: #42515a;
+    font-size: 14px;
+    transition: .2s;
+}
+
+.form_login a:hover {
+    color: #0095d9;
+    text-decoration: none;
+}
+
+
+/* 3.5: Ajustes de Quebra */
+
+@media (max-width: 767px) {
+    main {
+        min-height: calc(100vh - 110px);
+        padding-top: 85px;
+    }
+    .link-logo {
+        max-width: 225px;
+    }
+}
+
+@media (min-width: 768px) {
+    .form_login {
+        margin-bottom: 150px;
+    }
+}
+
+@media (max-width: 575px) {
+    .banner {
+        height: 250px;
+        background-position: -125px center;
+    }
+    main:after,
+    main:before {
+        width: 225px;
+        height: 225px;
+    }
+    #cadastro {
+        margin-top: -40px;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+    .banner {
+        height: 325px;
+        background-position: -125px center;
+    }
+    main:after,
+    main:before {
+        width: 300px;
+        height: 300px;
+    }
+    #cadastro {
+        margin-top: -55px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .banner {
+        height: 350px;
+        background-position: -125px center;
+    }
+    main:after,
+    main:before {
+        width: 330px;
+        height: 330px;
+    }
+    #cadastro {
+        margin-top: -55px;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .banner {
+        height: 500px;
+        background-position: -250px center;
+    }
+    main:after,
+    main:before {
+        width: 375px;
+        height: 375px;
+    }
+}
+
+
+/*** 4: Rodapé ***/
+
+footer {
+    height: 125px;
+    background-color: #a3c2d1;
+}

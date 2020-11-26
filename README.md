@@ -38,3 +38,8 @@ $ npm install
 ```sh
 $ npm run dev
 ```
+
+#### 1.6 Create database tables:
+```sh
+$ php artisan migrate --seed
+```
