@@ -3,9 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Repositories\ExpertiseAreaRepository;
 
 class VolunteerController extends Controller
 {
+    public function __construct(
+        ExpertiseAreaRepository $expertiseAreaRepository
+    ) {
+        $this->expertiseAreaRepository = $expertiseAreaRepository;
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -17,11 +24,11 @@ class VolunteerController extends Controller
         $weekDays = [];
         $weekHours = [];
         $cities = [];
-        $areas = [];
+        $expertiseAreas = $this->expertiseAreaRepository->allActive();
 
         return view(
             'website.volunteer.create',
-            compact('weekDays', 'weekHours', 'cities', 'areas')
+            compact('weekDays', 'weekHours', 'cities', 'expertiseAreas')
         );
     }
 
