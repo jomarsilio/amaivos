@@ -47,7 +47,8 @@
                         </a>
                     </div>
 
-                    {{-- Inicio - Esconder se cadastro e voluntário --}}
+                    @if (request()->route()->getName() != 'volunteer.create')
+                        {{-- Esconder se cadastro e voluntário --}}
                         <div class="col-3 col-md-4 d-flex align-items-center justify-content-center justify-content-md-end">
                             <a class="link-btn-mobile d-inline-block d-md-none px-4 py-2" href="javascript:void(0);" onclick="toggleMenu()">
                                 <i class="fas fa-bars fa-2x"></i>
@@ -63,7 +64,7 @@
                                 <strong>Seja voluntário</strong>
                             </a>
                         </div>
-                    {{-- Fim - Esconder se cadastro e voluntário --}}
+                    @endif
                 </div>
             </div>
         </header>

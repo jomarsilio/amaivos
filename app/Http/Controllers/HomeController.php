@@ -13,6 +13,6 @@ class HomeController extends Controller
      */
     public function __invoke()
     {
-        return view('amaivos.home');
+        return view('website.home');
     }
 }

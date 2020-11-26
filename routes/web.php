@@ -17,14 +17,9 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
+/**
+ * SITE
+ */
 Route::get('/', App\Http\Controllers\HomeController::class)->name('home');
-
-Route::resource('voluntario', App\Http\Controllers\VolunteerController::class)
-    ->only(['create', 'store'])
-    ->parameters([
-        'voluntario' => 'volunteer',
-    ])
-    ->names([
-        'create' => 'volunteer.create',
-        'store' => 'volunteer.store'
-    ]);
+Route::get('voluntario', [App\Http\Controllers\VolunteerController::class, 'create'])->name('volunteer.create');
+Route::post('voluntario', [App\Http\Controllers\VolunteerController::class, 'store'])->name('volunteer.store');

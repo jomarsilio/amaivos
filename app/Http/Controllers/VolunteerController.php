@@ -13,7 +13,16 @@ class VolunteerController extends Controller
      */
     public function create()
     {
-        return view('amaivos.volunteer.create');
+        // Resgata os valores para popular o formulário.
+        $weekDays = [];
+        $weekHours = [];
+        $cities = [];
+        $areas = [];
+
+        return view(
+            'website.volunteer.create',
+            compact('weekDays', 'weekHours', 'cities', 'areas')
+        );
     }
 
     /**

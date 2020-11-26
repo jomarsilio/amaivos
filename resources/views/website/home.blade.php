@@ -1,4 +1,4 @@
-@extends('layouts.amaivos')
+@extends('layouts.website')
 
 @section('content')
     <main class="position-relative d-flex mt-5 mt-md-0 align-items-md-center justify-content-md-center">
