@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\VolunteerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +21,8 @@ use Illuminate\Support\Facades\Route;
 /**
  * SITE
  */
-Route::get('/', App\Http\Controllers\HomeController::class)->name('home');
-Route::get('voluntario', [App\Http\Controllers\VolunteerController::class, 'create'])->name('volunteer.create');
-Route::post('voluntario', [App\Http\Controllers\VolunteerController::class, 'store'])->name('volunteer.store');
+Route::group(['namespace' => 'App\Http\Controllers'], function () {
+    Route::get('/', HomeController::class)->name('home');
+    Route::get('voluntario', [VolunteerController::class, 'create'])->name('volunteer.create');
+    Route::post('voluntario', [VolunteerController::class, 'store'])->name('volunteer.store');
+});

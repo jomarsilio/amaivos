@@ -1,94 +1,208 @@
-<form id="cadastro" class="d-flex flex-column p-5 mb-lg-5">
+{!! Form::open([
+    'route' => 'volunteer.store',
+    'method' => 'post',
+    'id' => 'cadastro',
+    'class' => 'd-flex flex-column p-5 mb-lg-5'
+]) !!}
     <div class="form-group">
-        <label for="nome">Nome completo</label>
-        <input type="text" id="nome" name="nome" class="form-control">
+        {{ Form::label('vonlunteer-name', 'Nome completo') }}
+        {{ Form::text(
+            'volunteer[name]',
+            old('vonlunteer.name'),
+            [
+                'class' => 'form-control',
+                'id' => 'vonlunteer-name',
+                'maxlength' => 255,
+                'required' => true
+            ]
+        ) }}
     </div>
     <div class="form-group">
-        <label for="data_nasc">Data de nascimento</label>
-        <input type="text" id="data_nasc" name="data_nasc" class="form-control" onkeypress="mascara(this, mdata);" maxlength="10">
+        {{ Form::label('vonlunteer-birth-date', 'Data de nascimento') }}
+        {{ Form::text(
+            'volunteer[birth_date]',
+            old('vonlunteer.birth_date'),
+            [
+                'class' => 'form-control',
+                'id' => 'vonlunteer-birth-date',
+                'maxlength' => 10,
+                'required' => true,
+                'onkeypress' => 'mascara(this, mdata);'
+            ]
+        ) }}
     </div>
     <div class="form-group">
-        <label for="cpf">CPF</label>
-        <input type="text" id="cpf" name="cpf" class="form-control" onkeypress="mascara(this, mcpf);" maxlength="14">
+        {{ Form::label('vonlunteer-cpf', 'CPF') }}
+        {{ Form::text(
+            'volunteer[cpf]',
+            old('vonlunteer.cpf'),
+            [
+                'class' => 'form-control',
+                'id' => 'vonlunteer-cpf',
+                'maxlength' => 14,
+                'required' => true,
+                'onkeypress' => 'mascara(this, mcpf);'
+            ]
+        ) }}
     </div>
     <div class="form-group">
-        <label for="celular">Celular</label>
-        <input type="text" id="celular" name="celular" class="form-control" onkeypress="mascara(this, mtel);" maxlength="15">
+        {{ Form::label('vonlunteer-cell-phone', 'Celular') }}
+        {{ Form::text(
+            'volunteer[cell_phone]',
+            old('vonlunteer.cell_phone'),
+            [
+                'class' => 'form-control',
+                'id' => 'vonlunteer-cell-phone',
+                'maxlength' => 15,
+                'required' => true,
+                'onkeypress' => 'mascara(this, mtel);'
+            ]
+        ) }}
     </div>
     <div class="form-group">
-        <label for="email">E-mail</label>
-        <input type="email" id="email" name="email" class="form-control">
+        {{ Form::label('vonlunteer-email', 'E-mail') }}
+        {{ Form::text(
+            'volunteer[email]',
+            old('vonlunteer.email'),
+            [
+                'class' => 'form-control',
+                'id' => 'vonlunteer-email',
+                'maxlength' => 150
+            ]
+        ) }}
     </div>
     <div class="form-group">
-        <label for="nome_resp">Nome do responsável</label>
+        {{ Form::label('vonlunteer-responsible-name', 'Nome do responsável') }}
         <span class="d-block text-uppercase">(Caso o voluntário não tenha atingido a maioridade)</span>
-        <input type="text" id="nome_resp" name="nome_resp" class="form-control">
+        {{ Form::text(
+            'volunteer[responsible_name]',
+            old('vonlunteer.responsible_name'),
+            [
+                'class' => 'form-control',
+                'id' => 'vonlunteer-responsible-name',
+                'maxlength' => 255
+            ]
+        ) }}
     </div>
     <div class="form-group">
-        <label for="cpf_resp">CPF do responsável</label>
-        <input type="text" id="cpf_resp" name="cpf_resp" class="form-control" onkeypress="mascara(this, mcpf);" maxlength="14">
+        {{ Form::label('vonlunteer-responsible-cpf', 'CPF do responsável') }}
+        {{ Form::text(
+            'volunteer[responsible_cpf]',
+            old('vonlunteer.responsible_cpf'),
+            [
+                'class' => 'form-control',
+                'id' => 'vonlunteer-responsible-cpf',
+                'maxlength' => 14,
+                'onkeypress' => 'mascara(this, mcpf);'
+            ]
+        ) }}
     </div>
     <div class="form-group">
-        <label for="profissao">Profissão do voluntário</label>
-        <input type="text" id="profissao" name="profissao" class="form-control">
+        {{ Form::label('vonlunteer-occupation', 'Profissão do voluntário') }}
+        {{ Form::text(
+            'volunteer[occupation]',
+            old('vonlunteer.occupation'),
+            [
+                'class' => 'form-control',
+                'id' => 'vonlunteer-occupation',
+                'maxlength' => 150,
+                'required' => true
+            ]
+        ) }}
     </div>
     <div class="form-group">
-        <label for="cidade">Cidade que reside</label>
-        <select id="cidade" name="cidade" class="form-control custom-select erro_bg">
-            <option>Opção 1</option>
-            <option>Opção 2</option>
-        </select>
+        {{ Form::label('vonlunteer-city', 'Cidade que reside') }}
+        {{ Form::select(
+            'volunteer[city_id]',
+            $cities->mapWithKeys(function ($item) {
+                return [$item['id'] => "{$item['name']} - {$item['uf']}"];
+            }),
+            old('volunteer.city_id'),
+            [
+                'placeholder' => '...',
+                'class' => 'form-control custom-select',
+                'id' => 'vonlunteer-city',
+                'required' => true
+            ]
+        ) }}
     </div>
     <div class="form-group">
-        <label for="horas">Horas que pode dedicar por dia</label>
-        <select id="horas" name="horas" class="form-control custom-select">
-            <option>Opção 1</option>
-            <option>Opção 2</option>
-        </select>
+        {{ Form::label('vonlunteer-available-time', 'Horas que pode dedicar por dia') }}
+        {{ Form::select(
+            'volunteer[available_time]',
+            $availableTimes,
+            old('volunteer.available_time'),
+            [
+                'placeholder' => '...',
+                'class' => 'form-control custom-select',
+                'id' => 'vonlunteer-available-time',
+                'required' => true
+            ]
+        ) }}
     </div>
     <div class="form-group">
-        <label>Dias que pode dedicar por semana</label>
-        <div class="custom-control custom-checkbox mb-1">
-            <input class="custom-control-input" type="checkbox" value="domingo" id="domingo">
-            <label class="custom-control-label" for="domingo">Domingo</label>                        
-        </div>
-        <div class="custom-control custom-checkbox mb-1">
-            <input class="custom-control-input" type="checkbox" value="segunda" id="segunda">
-            <label class="custom-control-label" for="segunda">Segunda-feira</label>                        
-        </div>
-        <div class="custom-control custom-checkbox mb-1">
-            <input class="custom-control-input" type="checkbox" value="terca" id="terca">
-            <label class="custom-control-label" for="terca">Terça-feira</label>                        
-        </div>
-        <div class="custom-control custom-checkbox mb-1">
-            <input class="custom-control-input" type="checkbox" value="quarta" id="quarta">
-            <label class="custom-control-label" for="quarta">Quarta-feira</label>                        
-        </div>
-        <div class="custom-control custom-checkbox mb-1">
-            <input class="custom-control-input" type="checkbox" value="quinta" id="quinta">
-            <label class="custom-control-label" for="quinta">Quinta-feira</label>                        
-        </div>
-        <div class="custom-control custom-checkbox mb-1">
-            <input class="custom-control-input" type="checkbox" value="sexta" id="sexta">
-            <label class="custom-control-label" for="sexta">Sexta-feira</label>                        
-        </div>
-        <div class="custom-control custom-checkbox mb-1">
-            <input class="custom-control-input" type="checkbox" value="sabado" id="sabado">
-            <label class="custom-control-label" for="sabado">Sábado</label>                        
-        </div>
+        {{ Form::label('vonlunteer-week-day', 'Dias que pode dedicar por semana') }}
+        @foreach ($weekDays as $item)
+            <div class="custom-control custom-checkbox mb-1">
+                {{ Form::checkbox(
+                    'volunteer-week-day[]',
+                    $item->id,
+                    false,
+                    [
+                        'class' => 'custom-control-input',
+                        'id' => 'vonlunteer-week-day-'.$item->id
+                    ]
+                ) }}
+                {{ Form::label(
+                    'vonlunteer-week-day-'.$item->id,
+                    $item->name,
+                    [
+                        'class' => 'custom-control-label'
+                    ]
+                ) }}
+            </div>
+        @endforeach
     </div>
     <div class="form-group">
-        <label for="area"><h2><strong>Indique a área em que deseja atuar:</strong></h2></label>
-        <select id="area" name="area" class="form-control custom-select">
-            <option>Opção 1</option>
-            <option>Opção 2</option>
-        </select>
+        <label for="vonlunteer-expertise-area"><h2><strong>Indique a área em que deseja atuar:</strong></h2></label>
+        {{ Form::select(
+            'volunteer[expertise_area_id]',
+            $expertiseAreas->mapWithKeys(function ($item) {
+                return [$item['id'] => $item['name']];
+            }),
+            old('volunteer.expertise_area_id'),
+            [
+                'placeholder' => '...',
+                'class' => 'form-control custom-select',
+                'id' => 'vonlunteer-expertise-area',
+                'required' => true
+            ]
+        ) }}
     </div>
     <div class="custom-control custom-radio">
-        <input class="custom-control-input" type="radio" name="termo" id="termo">
-        <label class="custom-control-label" for="termo">Confirme seu interesse em ser voluntário aceitando nosso <a href="#" target="_blank">termo de adesão</a>.</label>
+        {{ Form::radio(
+            'volunteer[confirmation]',
+            1,
+            false,
+            [
+                'class' => 'custom-control-input',
+                'id' => 'vonlunteer-confirmation',
+                'required' => true
+            ]
+        ) }}
+        <label class="custom-control-label" for="vonlunteer-confirmation">
+            Confirme seu interesse em ser voluntário aceitando nosso <a href="#" target="_blank">termo de adesão</a>.
+        </label>
     </div>
-    <button type="submit" class="text-uppercase align-self-center mt-4"><strong>Enviar</strong></button>
+    {{ Form::button(
+        '<strong>Enviar</strong>',
+        [
+            'type' => 'submit',
+            'class' => 'text-uppercase align-self-center mt-4'
+        ]
+    ) }}
+
+    {{-- Mensagens --}}
     <div>
         <div class="form_alert row align-items-center justify-content-center justify-content-sm-start text-uppercase mt-3">
             <img class="col-6 col-sm-3" src="{{ asset('images/error.png') }}">
@@ -107,4 +221,4 @@
             </div>
         </div>
     </div>
-</form>
+{!! Form::close() !!}
