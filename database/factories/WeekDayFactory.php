@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\ExpertiseArea;
+use App\Models\WeekDay;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class ExpertiseAreaFactory extends Factory
+class WeekDayFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = ExpertiseArea::class;
+    protected $model = WeekDay::class;
 
     /**
      * Define the model's default state.
@@ -22,7 +22,7 @@ class ExpertiseAreaFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->jobTitle,
+            'name' => $this->faker->dayOfWeek(),
             'active' => $this->faker->boolean(70),
         ];
     }

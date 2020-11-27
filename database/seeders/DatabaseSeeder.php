@@ -15,5 +15,7 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
         \App\Models\ExpertiseArea::factory(10)->create();
+        \App\Models\WeekDay::factory(7)->create();
+        \App\Models\City::factory(50)->create();
     }
 }
