@@ -22,6 +22,7 @@ const mix = require('laravel-mix');
 mix
     .styles([
         'resources/css/sisdado-bootstrap.min.css',
+        'resources/css/sisdado-fontawesome-all.min.css',
         'resources/css/sisdado-custom.css'
     ], 'public/css/amaivos.min.css')
     .scripts([
