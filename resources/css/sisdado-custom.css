@@ -351,9 +351,19 @@ main h4 {
     line-height: 20px;
 }
 
-.erro_bg {
+input.erro_bg {
     background-color: #f06271 !important;
     color: #FFF;
+}
+
+.custom-radio.erro_bg label,
+.custom-checkbox.erro_bg label {
+    color: #f06271 !important;
+}
+
+.custom-checkbox.erro_bg .custom-control-input~.custom-control-label::before,
+.custom-radio.erro_bg .custom-control-input~.custom-control-label::before {
+    box-shadow: 0 0 0 1px #f06271, 0 0 0 0.2rem rgb(240 98 113 / 60%);
 }
 
 

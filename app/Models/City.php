@@ -34,6 +34,14 @@ class City extends Model
     }
 
     /**
+     * Volunteers.
+     */
+    public function volunteers()
+    {
+        return $this->hasMany('App\Models\Volunteer', 'city_id', 'id');
+    }
+
+    /**
      * Scope a query to only include active cities.
      *
      * @param  \Illuminate\Database\Eloquent\Builder  $query

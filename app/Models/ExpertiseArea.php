@@ -33,6 +33,14 @@ class ExpertiseArea extends Model
     }
 
     /**
+     * Volunteers.
+     */
+    public function volunteers()
+    {
+        return $this->hasMany('App\Models\Volunteer', 'expertise_area_id', 'id');
+    }
+
+    /**
      * Scope a query to only include active areas.
      *
      * @param  \Illuminate\Database\Eloquent\Builder  $query

@@ -12,3 +12,18 @@ function toggleMenu() {
         nav.animate({ height: '45px' }, 400);
     }
 }
+
+$(document).ready(() => {
+    $(".termos input[type=radio]").change(() => {
+        let wrapper = $(".termos.custom-radio");
+        if(wrapper.hasClass("erro_bg")) {
+            wrapper.removeClass("erro_bg");
+        }
+    })
+    $(".dias input[type=checkbox]").change(() => {
+        let wrapper = $(".dias.custom-checkbox");
+        if(wrapper.hasClass("erro_bg")) {
+            wrapper.removeClass("erro_bg");
+        }
+    })
+});

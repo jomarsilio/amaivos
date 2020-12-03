@@ -33,6 +33,14 @@ class WeekDay extends Model
     }
 
     /**
+     * Volunteer week days.
+     */
+    public function volunteerWeekDays()
+    {
+        return $this->hasMany('App\Models\VolunteerWeekDay', 'week_day_id', 'id');
+    }
+
+    /**
      * Scope a query to only include active week days.
      *
      * @param  \Illuminate\Database\Eloquent\Builder  $query
